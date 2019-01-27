@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alek Ruzic</title>
+        <link href="main.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - 51
+                    }, 10);
+                    return false;
+                }
+            }
+        });
+    });
+
+    var slideIndex = 1;
+    function plusDivsSofina(n, picture) {
+        showDivsSofina(slideIndex += n);
+    }
+
+    function showDivsSofina(n) {
+        var i;
+        var x = document.getElementsByClassName("sofinaSlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length };
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+
+    function plusDivsYunesta(n, picture) {
+        showDivsYunesta(slideIndex += n);
+    }
+
+    function showDivsYunesta(n) {
+        var i;
+        var x = document.getElementsByClassName("yunestaSlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length };
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+
+
+</script>
+    </head>
+    <body>
+        <video id="cinemagraph" height="100%" width="100%" autoplay muted loop>
+            <source src="cinemagraph5.mp4" type="video/mp4">
+        </video>
+        <a href="#aboutDiv"><div id="welcomeButton">Welcome</div></a>
+        <nav id="nav">
+            <ul>
+                <li><a href="#cinemagraph">Home</a></li>
+                <li><a href="#aboutDiv">About</a></li>
+                <li><a href="#workDiv">Work</a></li>
+                <li><a href="#contactDiv">Contact</a></li>
+            </ul>
+            <div id="blueBar"></div>
+        </nav>
+
+    <div id="aboutDiv">
+        <div id="aboutBoxesWrap">
+            <div id="frontEndDiv" class="aboutBoxes">
+                <h1>Front-End</h1>
+                <img class="shapes" src="image-assets/FrontEnd_Shape.jpg">
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Angular 2.0+</li>
+                    <li>Sass</li>
+                    <li>Bootstrap</li>
+                </ul>
+            </div>
+            <div id="backEndDiv" class="aboutBoxes">
+                <h1>Back-End</h1>
+                <img class="shapes" src="image-assets/BackEnd_Shape.jpg">
+                <ul>
+                    <li>NodeJS</li>
+                    <li>PHP</li>
+                    <li>C#</li>
+                    <li>SQL Server</li>
+                    <li>MySQL</li>
+                    <li>Firebase</li>
+                </ul>
+            </div>
+            <div id="toolsDiv" class="aboutBoxes">
+                <h1>Tools</h1>
+                <img class="shapes" src="image-assets/Tools_Shape.jpg">
+                <ul>
+                    <li>Github</li>
+                    <li>TFS</li>
+                    <li>Visual Studio</li>
+                    <li>SharePoint</li>
+                    <li>Photoshop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <div id="workDiv">
+            <div class="workPictureOnRight">
+                <div class="descriptionLeft">
+                    <p>A web application created to automate the approval of a particular form</p>
+                    <p>Front End: HTML, CSS, JavaScript</p>
+                    <p>Back End: SQL Server (connected through SharePoint External List)</p>
+                </div>
+
+                <div class="container">
+                    <img src="sofinaPic1.png" class="workPic sofinaSlides w3-animate-left" style="display:block;">
+                    <img src="sofinaPic2.png" class="workPic sofinaSlides w3-animate-left">
+                    <img src="sofinaPic3.png" class="workPic sofinaSlides w3-animate-left">
+                    <img src="sofinaPic4.png" class="workPic sofinaSlides w3-animate-left">
+                    <img src="image-assets/Left_Arrows.png"  class="arrowButtons leftArrows" onclick="plusDivsSofina(-1)">
+                    <img src="image-assets/Right_Arrows.png"  class="arrowButtons rightArrows" onclick="plusDivsSofina(+1)">
+                </div>
+            </div>
+
+            <div class="workPictureOnLeft">
+                <div class="container">
+                    <img src="yunestaPublications.png" class="workPic yunestaSlides" style="display:block;">
+                    <img src="yunestaAbout.png" class="workPic yunestaSlides">
+                    <img src="image-assets/Left_Arrows.png" class="arrowButtons leftArrows" onclick="plusDivsYunesta(-1)">
+                    <img src="image-assets/Right_Arrows.png" class="arrowButtons rightArrows" onclick="plusDivsYunesta(+1)">
+                </div>
+
+                <div class="descriptionRight">
+                    <p>A writer portfolio for Yunesta Soedarmasto</p>
+                    <p>Front End: HTML, CSS, JavaScript</p>
+                </div>
+            </div>
+        </div>
+
+    <div id="contactDiv">
+        <h1>Contact Me</h1>
+        <input type="text" id="txtName" placeholder="name">
+        <input type="email" id="txtEmail" placeholder="email">
+        <textarea id="messageBox" placeholder="message"></textarea>
+        <a href="#cinemagraph"><img src="image-assets/Logo.png"></a>
+    </div>
+    </body>
+</html>
